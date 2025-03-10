@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - Lir.io</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-new.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <!-- Header con título y fecha -->
+    <header class="header-main">
+        <div id="fecha-hora"></div>
+        <h1>Lir.io</h1>
+        <nav class="menu-horizontal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección del equipo -->
+    <div class="team-section">
+        <div class="team-member">
+            <img src="img/team1.jpeg" alt="Miembro 1">
+            <h3>Bernie Aguilar Fernández de Castro</h3>
+            <p>Rol: Desarrollador Frontend</p>
+            <p>Soy estudiante de 8vo semestre en la carrera de ingeniería en tecnologías de la información en la Anáhuac Querétaro. Mis actividades favoritas son pintar, escuchar música, tocar la guitarra y pasar tiempo con mis amistades. Me encantan los gatos. Mi flores favoritas son las flores silvestres, como la lavanda, girasol, gerberas y amapolas. Esta práctica me pareció muy interesante, ya que aprendí a usar herramientas nuevas, aparte de las vistas a lo largo del primer periodo, como los bxSliders, el botón para regresar arriba, y el plugin para mostrar un mapa embebido.</p>
+        </div>
+        <div class="team-member">
+            <img src="img/team2.jpg" alt="Miembro 2">
+            <h3>Fernanda Pablos De Gyves</h3>
+            <p>Rol: Diseñador UX/UI</p>
+            <p>Soy estudiante de 8vo semestre en dirección de empresas de la universidad Anáhuac México, me gusta mucho practicar idiomas, hacer ejercicio y pasar el rato con mis amigos, familia y mis perros. Mi flor favorita es el clavel, me encanta la forma que le dan sus pétalos. Esta práctica me pareció muy enriquecedora, ya que aprendimos a usar varias herramientas, como el bxSlider y los formularios con validación de JavaScript.</p>
+        </div>
+        <div class="team-member">
+            <img src="img/team3.jpg" alt="Miembro 3">
+            <h3>Juan Pablo Parra Castillo</h3>
+            <p>Rol: Desarrollador Backend</p>
+            <p>Soy estudiante de dirección financiera en 8vo semestre en la universidad Anáhuac Querétaro, me gusta mucho convivir con mis amigos y correr, mi flor es la gerbera porque tiene muchos colores y la considero muy alegre. Esta práctica fue muy interesante porque pude aplicar los conocimientos que obtuve este periodo sobre JavaScript, HTML y CSS.</p>
+        </div>
+    </div>
+
+    <!-- Botón ir arriba -->
+    <a href="#" class="back-to-top" id="back-to-top">↑</a>
+
+    <!-- Footer -->
+    <footer>
+        <p>Derechos Reservados 2025 - Lir.io Florería</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        $(document).ready(function(){
+            // Actualizar fecha y hora
+            function actualizarFechaHora() {
+                const ahora = new Date();
+                const opciones = { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                };
+                document.getElementById('fecha-hora').textContent = 
+                    ahora.toLocaleDateString('es-MX', opciones);
+            }
+            
+            actualizarFechaHora();
+            setInterval(actualizarFechaHora, 1000);
+
+            // Botón ir arriba
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 200) {
+                    $('#back-to-top').addClass('visible');
+                } else {
+                    $('#back-to-top').removeClass('visible');
+                }
+            });
+
+            $('#back-to-top').click(function(e) {
+                e.preventDefault();
+                $('html, body').animate({scrollTop: 0}, 500);
+            });
+        });
+    </script>
+</body>
+</html> 

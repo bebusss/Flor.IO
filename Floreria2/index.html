@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración del documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lir.io - Florería</title>
+    <!-- Enlace a la hoja de estilos -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-new.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- bxSlider CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <!-- bxSlider JavaScript -->
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+</head>
+<body>
+    <!-- Header con título y fecha -->
+    <header class="header-main">
+        <div id="fecha-hora"></div>
+        <h1>Lir.io</h1>
+        <nav class="menu-horizontal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Slider de imágenes -->
+    <div class="slider-container">
+        <div class="slider">
+            <div><img src="img/slider1.jpg" alt="Arreglo floral 1"></div>
+            <div><img src="img/slider2.jpg" alt="Arreglo floral 2"></div>
+            <div><img src="img/slider3.jpg" alt="Arreglo floral 3"></div>
+            <div><img src="img/slider4.jpg" alt="Arreglo floral 4"></div>
+        </div>
+    </div>
+
+    <!-- Información de contacto y mapa -->
+    <div class="info-section">
+        <div class="contact-info">
+            <h2>Horarios y Ubicación</h2>
+            <p><strong>Horario:</strong></p>
+            <p>Lunes: 11:00 AM - 7:30 PM</p>
+            <p>Martes: 11:00 AM - 7:30 PM</p>
+            <p>Miércoles: 11:00 AM - 12:00 AM</p>
+            <p>Jueves: 12:00 AM - 7:30 AM y 11:00 AM - 7:30 PM</p>
+            <p>Viernes: 11:00 AM - 7:30 PM</p>
+            <p>Sábado: 12:00 PM - 2:30 PM</p>
+            <p>Domingo: Cerrado</p>
+            <p><strong>Dirección:</strong></p>
+            <p>Plaza Sago, El Refugio</p>
+            <p>76146 Santiago de Querétaro, Qro.</p>
+        </div>
+        <div class="map-container">
+        <p>Consulta nuestras zonas de envío</p>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m12!1m8!1m3!1d14933.530052293303!2d-100.3485112!3d20.6540113!3m2!1i1024!2i768!4f13.1!2m1!1sel%20refugio%20floreria!5e0!3m2!1ses-419!2smx!4v1741557978613!5m2!1ses-419!2smx"
+                width="100%" 
+                height="100%" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Contenedor principal -->
+    <section class="contenedor">
+        <!-- Sección principal -->
+        <section class="main">
+            <article>
+                <h2>Título Principal</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti veniam ullam magnam, esse blanditiis pariatur architecto enim maxime non, commodi officia corporis fuga, vitae cupiditate! Aspernatur inventore quidem sit molestiae!</p>
+            </article>
+            <article>
+                <h3>Título Secundario</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae qui alias harum itaque sit soluta. Magnam, corporis aperiam nostrum mollitia consequuntur ullam provident! Quod dolorem odit explicabo consequuntur! Debitis, esse?</p>
+            </article>
+        </section>
+
+        <!-- Barra lateral -->
+        <aside>
+            <h3>Sidebar</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, facere mollitia. Molestias, eos? Distinctio, ex in earum officiis fuga aperiam animi! Soluta animi et quas pariatur blanditiis temporibus nisi error!</p>
+        </aside>
+    
+    </section>
+
+    
+
+    
+    <div class="contenedor">
+        <form action="" class="formulario" id="formulario" name="formulario">
+            <div class="contenedor-inputs">
+                <input type="text" name="nombre" placeholder="Nombre">
+                <input type="email" name="correo" placeholder="Correo Electrónico">
+                <div class="genero">
+                    <input type="radio" name="genero" id="hombre" value="hombre">
+                    <label for="hombre" class="label-radio hombre">Hombre</label>
+                    <input type="radio" name="genero" id="mujer" value="mujer">
+                    <label for="mujer" class="label-radio mujer">Mujer</label>
+                    <input type="radio" name="genero" id="otro" value="otro">
+                    <label for="otro" class="label-radio otro">Otro</label>
+                </div>
+                <br><br>
+                
+                <div class="form-group">
+                    <label for="arreglo">Selecciona un arreglo floral:</label>
+                    <select name="arreglo" id="arreglo">
+                      <option value="">-- Qué tipo de arreglo floral te interesa? --</option>
+                        <option value="arreglo1">Reina (Arreglo de peonias)</option>
+                        <option value="arreglo2">Princesa (Arreglo de orquídeas)</option>
+                      <option value="arreglo3">Duquesa (Arreglo de tulipanes)</option>
+                      <option value="arreglo4">Condesa (Arreglo de rosas)</option>
+                      <option value="arreglo5">Marquesa (Arreglo de claveles)</option>
+                    </select>
+                  </div>
+                <br><br>
+                <div class="terminos">
+                    <input type="checkbox" name="terminos" id="terminos">
+                    <label for="terminos">Acepto los términos y condiciones</label>    -
+                </div>
+                <div class="error" id="error"></div>
+            </div>
+            <input type="submit" class="btn" value="Registrarse">
+        </form>
+    </div>
+    <script src="script.js"></script>
+    
+    <!-- Se agrega el botón del footer -->
+    <a href="#" id="back-to-top" class="back-to-top">↑</a> 
+
+    <!-- Pie de página -->
+    <footer>
+        <p>Derechos Reservados 2025 - Lir.io Florería</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Inicializar bxSlider
+        $(document).ready(function(){
+            $('.slider').bxSlider({
+                mode: 'fade',
+                captions: true,
+                auto: true,
+                pause: 5000
+            });
+
+            // Actualizar fecha y hora
+            function actualizarFechaHora() {
+                const ahora = new Date();
+                const opciones = { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                };
+                document.getElementById('fecha-hora').textContent = 
+                    ahora.toLocaleDateString('es-MX', opciones);
+            }
+            
+            actualizarFechaHora();
+            setInterval(actualizarFechaHora, 1000);
+
+            // Botón ir arriba
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 200) {
+                    $('#back-to-top').addClass('visible');
+                } else {
+                    $('#back-to-top').removeClass('visible');
+                }
+            });
+
+            $('#back-to-top').click(function(e) {
+                e.preventDefault();
+                $('html, body').animate({scrollTop: 0}, 500);
+            });
+        });
+    </script>
+</body>
+</html>

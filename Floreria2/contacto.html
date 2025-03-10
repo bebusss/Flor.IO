@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Lir.io</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles-new.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <!-- Header con título y fecha -->
+    <header class="header-main">
+        <div id="fecha-hora"></div>
+        <h1>Lir.io</h1>
+        <nav class="menu-horizontal">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="catalogo.html">Catálogo</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Formulario de contacto -->
+    <div class="contenedor">
+        <form action="" class="formulario" id="formulario-contacto" name="formulario-contacto">
+            <div class="contenedor-inputs">
+                <input type="text" name="nombre" id="nombre" placeholder="Nombre completo" required>
+                <input type="email" name="correo" id="correo" placeholder="Correo Electrónico" required>
+                <input type="tel" name="telefono" id="telefono" placeholder="Teléfono" required>
+                <textarea name="mensaje" id="mensaje" placeholder="Tu mensaje" rows="5" required></textarea>
+                
+                <div class="preferencias">
+                    <h3>¿Qué tipo de arreglos te interesan?</h3>
+                    <div class="checkbox-group">
+                        <input type="checkbox" name="preferencias" id="rosas" value="rosas">
+                        <label for="rosas">Rosas</label>
+                        
+                        <input type="checkbox" name="preferencias" id="tulipanes" value="tulipanes">
+                        <label for="tulipanes">Tulipanes</label>
+                        
+                        <input type="checkbox" name="preferencias" id="orquideas" value="orquideas">
+                        <label for="orquideas">Orquídeas</label>
+                        
+                        <input type="checkbox" name="preferencias" id="girasoles" value="girasoles">
+                        <label for="girasoles">Girasoles</label>
+                    </div>
+                </div>
+
+                <div class="terminos">
+                    <input type="checkbox" name="terminos" id="terminos" required>
+                    <label for="terminos">Acepto los términos y condiciones</label>
+                </div>
+
+                <div id="error-mensaje" class="error"></div>
+            </div>
+            <input type="submit" class="btn" value="Enviar mensaje">
+        </form>
+    </div>
+
+    <!-- Botón ir arriba -->
+    <a href="#" class="back-to-top" id="back-to-top">↑</a>
+
+    <!-- Footer -->
+    <footer>
+        <p>Derechos Reservados 2025 - Lir.io Florería</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        $(document).ready(function(){
+            // Actualizar fecha y hora
+            function actualizarFechaHora() {
+                const ahora = new Date();
+                const opciones = { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                };
+                document.getElementById('fecha-hora').textContent = 
+                    ahora.toLocaleDateString('es-MX', opciones);
+            }
+            
+            actualizarFechaHora();
+            setInterval(actualizarFechaHora, 1000);
+
+            // Validación del formulario
+            $('#formulario-contacto').on('submit', function(e) {
+                e.preventDefault();
+                const errores = [];
+                const errorMensaje = $('#error-mensaje');
+                errorMensaje.html('');
+
+                // Validar nombre
+                const nombre = $('#nombre').val().trim();
+                if (nombre.length < 3) {
+                    errores.push('El nombre debe tener al menos 3 caracteres');
+                }
+
+                // Validar email
+                const email = $('#correo').val().trim();
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    errores.push('Por favor, ingresa un correo electrónico válido');
+                }
+
+                // Validar teléfono
+                const telefono = $('#telefono').val().trim();
+                const telefonoRegex = /^\d{10}$/;
+                if (!telefonoRegex.test(telefono)) {
+                    errores.push('El teléfono debe tener 10 dígitos');
+                }
+
+                // Validar mensaje
+                const mensaje = $('#mensaje').val().trim();
+                if (mensaje.length < 10) {
+                    errores.push('El mensaje debe tener al menos 10 caracteres');
+                }
+
+                // Validar preferencias
+                const preferencias = $('input[name="preferencias"]:checked').length;
+                if (preferencias === 0) {
+                    errores.push('Por favor, selecciona al menos un tipo de arreglo');
+                }
+
+                // Mostrar errores o enviar formulario
+                if (errores.length > 0) {
+                    errorMensaje.html('<ul>' + errores.map(error => '<li>' + error + '</li>').join('') + '</ul>');
+                    errorMensaje.show();
+                } else {
+                    alert('¡Formulario enviado con éxito!');
+                    this.reset();
+                }
+            });
+
+            // Botón ir arriba
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 200) {
+                    $('#back-to-top').addClass('visible');
+                } else {
+                    $('#back-to-top').removeClass('visible');
+                }
+            });
+
+            $('#back-to-top').click(function(e) {
+                e.preventDefault();
+                $('html, body').animate({scrollTop: 0}, 500);
+            });
+        });
+    </script>
+</body>
+</html> 
